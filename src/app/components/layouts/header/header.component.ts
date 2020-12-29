@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { TableDataService } from 'src/app/services/table-data.service';
+import { LeagueTableComponent } from '../../pages/league-table/league-table.component';
+import { MatchTableComponent } from '../../pages/match-table/match-table.component';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +10,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(private matchRequest:TableDataService) { }
 
   ngOnInit(): void {
+  }
+
+  generateRandomMatch() {
+    this.matchRequest.requestRandomMatch().subscribe();
   }
 
 }

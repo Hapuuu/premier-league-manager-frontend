@@ -10,6 +10,7 @@ import { HeaderComponent } from './components/layouts/header/header.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
+import { TableDataService } from './services/table-data.service';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,7 @@ import { MatTableModule } from '@angular/material/table';
     HttpClientModule,
     MatTableModule
   ],
-  providers: [],
+  providers: [TableDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

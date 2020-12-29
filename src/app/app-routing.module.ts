@@ -7,8 +7,6 @@ import { MatchTableComponent } from '../app/components/pages/match-table/match-t
 const routes: Routes = [
   { path: '', component: LeagueTableComponent },
   { path: 'matchTable', component: MatchTableComponent }
-
-
 ];
 
 @NgModule({
