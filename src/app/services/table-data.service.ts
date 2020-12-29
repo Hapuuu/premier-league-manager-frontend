@@ -1,27 +1,30 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { PremierLeagueData } from '../models/PremierLeagueData';
+import { MatchData } from '../models/MatchData';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TableDataService {
-  backendUrl:string = "http://localhost:9000/api/"
-  leagueDataUrl:string = `${this.backendUrl}/getPremierLeagueData`
-  matchDataUrl:string = `${this.backendUrl}/getMatchData`
-  generateMatchUrl:string = `${this.backendUrl}/generateRandomMatch`
+  backendUrl:string = "http://localhost:4200/api/"
+  leagueDataUrl:string = `${this.backendUrl}getPremierLeagueData`
+  matchDataUrl:string = `${this.backendUrl}getMatchData`
+  generateMatchUrl:string = `${this.backendUrl}generateRandomMatch`
 
   constructor(private http:HttpClient) { }
 
-  getLeagueData() {
-    return this.http.get(this.leagueDataUrl)
+  getLeagueData():Observable<PremierLeagueData[]> {
+    return this.http.get<PremierLeagueData[]>(this.leagueDataUrl);
   }
 
-  getMatchData() {
-    return this.http.get(this.matchDataUrl)
+  getMatchData():Observable<MatchData[]> {
+    return this.http.get<MatchData[]>(this.matchDataUrl);
   }
 
   requestRandomMatch() {
-    return this.http.get(this.generateMatchUrl)
+    return this.http.get(this.generateMatchUrl);
   }
   
 }
