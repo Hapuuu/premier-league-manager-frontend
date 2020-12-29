@@ -1,1 +1,49 @@
-<p>match-table works!</p>
+<div>league-table works!
+    <table mat-table [dataSource]="matchTableData" class="mat-elevation-z8">
+
+        <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+      
+        <!-- Team 1 Column -->
+        <ng-container matColumnDef="team1">
+            <th mat-header-cell *matHeaderCellDef> Team One </th>
+            <td mat-cell *matCellDef="let match"> {{match.teamOne}} </td>
+        </ng-container>
+      
+        <!-- Team 2 Column -->
+        <ng-container matColumnDef="team2">
+            <th mat-header-cell *matHeaderCellDef> Team Two </th>
+            <td mat-cell *matCellDef="let match"> {{match.teamTwo}} </td>
+        </ng-container>
+      
+        <!-- Team 1 goals Column -->
+        <ng-container matColumnDef="teamOneGoals">
+            <th mat-header-cell *matHeaderCellDef> Team One Goals </th>
+            <td mat-cell *matCellDef="let match"> {{match.teamOneGoals}} </td>
+        </ng-container>
+
+        <!-- Team 2 goals Column -->
+        <ng-container matColumnDef="teamTwoGoals">
+            <th mat-header-cell *matHeaderCellDef> Team Two Goals </th>
+            <td mat-cell *matCellDef="let match"> {{match.teamTwoGoals}} </td>
+        </ng-container>
+        
+        <!-- Date Column -->
+        <ng-container matColumnDef="matchDate">
+            <th mat-header-cell *matHeaderCellDef> Date </th>
+            <td mat-cell *matCellDef="let match"> {{match.matchDate}} </td>
+        </ng-container>
+
+        <!-- Location Column -->
+        <ng-container matColumnDef="location">
+            <th mat-header-cell *matHeaderCellDef> Location </th>
+            <td mat-cell *matCellDef="let match"> {{match.matchLocation}} </td>
+        </ng-container>
+    
+      
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+      
+      
+</div>

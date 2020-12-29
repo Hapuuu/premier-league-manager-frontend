@@ -9,6 +9,7 @@ import { TableDataService } from 'src/app/services/table-data.service';
 })
 export class MatchTableComponent implements OnInit {
   matchTableData:MatchData[];
+  displayedColumns: string[] = ['team1', 'team2', 'teamOneGoals', 'teamTwoGoals', 'matchDate', 'location'];
 
   constructor(private tableData:TableDataService) { }
 
