@@ -44,7 +44,6 @@ export class MatchTableComponent implements OnInit {
   returnAllMatches() {
     if(this.searchKey == "") {
       this.ngOnInit();
-      this.matchTableData = this.initialData;
     }
   }
 
