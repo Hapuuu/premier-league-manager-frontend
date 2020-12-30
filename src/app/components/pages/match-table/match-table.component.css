@@ -1,0 +1,12 @@
+form{
+    text-align: center;
+}
+
+input{
+    border: 0px;
+    margin: 20px;
+    font-size: 25px;
+    border-bottom: 3px solid rgb(71, 0, 89);
+    border-radius: 5px;
+    outline: none;
+}

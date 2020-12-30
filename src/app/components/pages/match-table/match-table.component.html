@@ -1,4 +1,9 @@
 <div>
+    <form>
+        <input matInput placeholder="search using date" [(ngModel)]="searchKey" name="searchKey" (input)="returnAllMatches()">
+        <button mat-raised-button color="primary" (click)="search()">Search</button>
+    </form>
+
     <table mat-table [dataSource]="matchTableData" class="mat-elevation-z8">
 
         <!--- Note that these columns can be defined in any order.

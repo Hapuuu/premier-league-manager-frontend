@@ -10,14 +10,42 @@ import { TableDataService } from 'src/app/services/table-data.service';
 export class MatchTableComponent implements OnInit {
   matchTableData:MatchData[];
   displayedColumns: string[] = ['team1', 'team2', 'teamOneGoals', 'teamTwoGoals', 'matchDate', 'location'];
-
+  searchKey:string;
+  initialData: MatchData[]; // this variable was created so that the search is done on the initial list not on the searched list
   constructor(private tableData:TableDataService) { }
 
   ngOnInit(): void {
     this.tableData.getMatchData().subscribe(data => {
       this.matchTableData = data;
+      this.initialData = data;
       console.log(this.matchTableData);
     });
+  }
+
+  search() {
+    console.log("search is called")
+    console.log(this.searchKey);
+    if(this.searchKey == "") {
+      this.ngOnInit();
+    }
+    else{
+      // filtering the matches by comparing the input and the dates of the matches
+      this.matchTableData = this.initialData.filter(result => {
+        let match = result.matchDate; // path to the matchDate Object is shortened for convenience in the next line
+        let searchDate:string = `${match.day.toString()}/${match.month.toString()}/${match.year.toString()}`;
+        return searchDate.match(this.searchKey);
+       // return result.matchDate.day.toString().match(this.searchKey);
+      });
+    }
+
+    
+  }
+
+  returnAllMatches() {
+    if(this.searchKey == "") {
+      this.ngOnInit();
+      this.matchTableData = this.initialData;
+    }
   }
 
 }

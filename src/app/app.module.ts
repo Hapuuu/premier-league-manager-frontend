@@ -11,6 +11,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
 import { TableDataService } from './services/table-data.service';
+import { FormsModule } from '@angular/forms'
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { TableDataService } from './services/table-data.service';
     BrowserAnimationsModule,
     MatButtonModule,
     HttpClientModule,
-    MatTableModule
+    MatTableModule,
+    FormsModule
   ],
   providers: [TableDataService],
   bootstrap: [AppComponent]
