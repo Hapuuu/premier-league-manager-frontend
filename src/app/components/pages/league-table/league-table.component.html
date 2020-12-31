@@ -24,7 +24,7 @@
 
         <!-- Wins Column -->
         <ng-container matColumnDef="wins">
-            <th mat-header-cell *matHeaderCellDef> Wins </th>
+            <th mat-header-cell *matHeaderCellDef (click)="sortByWins()" class="sort-button"> Wins </th>
             <td mat-cell *matCellDef="let club"> {{club.noOfWins}} </td>
         </ng-container>
         
@@ -41,8 +41,8 @@
         </ng-container>
 
         <!-- Goals Scored Column -->
-        <ng-container matColumnDef="goalsScored">
-            <th mat-header-cell *matHeaderCellDef> Goals Scored </th>
+        <ng-container matColumnDef="goalsScored" >
+            <th mat-header-cell *matHeaderCellDef (click)="sortByGoalsScored()" class="sort-button"> Goals Scored </th>
             <td mat-cell *matCellDef="let club"> {{club.noOfGoalsScored}} </td>
         </ng-container>
 

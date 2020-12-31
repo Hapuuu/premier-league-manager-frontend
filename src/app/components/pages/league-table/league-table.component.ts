@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TableDataService } from 'src/app/services/table-data.service';
 import { PremierLeagueData } from 'src/app/models/PremierLeagueData';
+import { MatTable } from '@angular/material/table';
 
 
 @Component({
@@ -20,5 +21,18 @@ export class LeagueTableComponent implements OnInit {
       console.log(this.leagueTableData);
     });
   }
+
+  sortByGoalsScored() {
+    console.log("Clicked");
+    this.leagueTableData.sort((a,b) => { return b.noOfGoalsScored - a.noOfGoalsScored });
+    this.leagueTableData = this.leagueTableData.filter(sorted => sorted);
+    //console.log(this.leagueTableData);
+  }
+
+  sortByWins() {
+    this.leagueTableData.sort((a,b) => { return b.noOfWins - a.noOfWins });
+    this.leagueTableData = this.leagueTableData.filter(sorted => sorted);
+  }
+  
 
 }
