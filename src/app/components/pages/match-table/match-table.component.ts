@@ -16,6 +16,8 @@ export class MatchTableComponent implements OnInit {
 
   ngOnInit(): void {
     this.tableData.getMatchData().subscribe(data => {
+      // this sorts according to the date of match
+      data.sort((a, b)=>{return ( a.matchDate.year - b.matchDate.year || a.matchDate.month - b.matchDate.month || a.matchDate.day - b.matchDate.day )});
       this.matchTableData = data;
       this.initialData = data;
       console.log(this.matchTableData);
