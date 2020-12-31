@@ -1,5 +1,7 @@
 .sort-button:hover{
     cursor: pointer;
+    color: orange;
+    transition-duration: 0.5s;
 }
 
 th{
