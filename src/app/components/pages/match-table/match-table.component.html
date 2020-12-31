@@ -1,13 +1,11 @@
 <div>
     <form>
+        <!-- ngModel is used for two way data binding which is used when the user clears up the search bar without pressing the search -->
         <input matInput placeholder="Search using date" [(ngModel)]="searchKey" name="searchKey" (input)="returnAllMatches()">
         <button mat-raised-button color="primary" (click)="search()">Search</button>
     </form>
 
     <table mat-table [dataSource]="matchTableData" class="mat-elevation-z8">
-
-        <!--- Note that these columns can be defined in any order.
-              The actual rendered columns are set as a property on the row definition" -->
       
         <!-- Team 1 Column -->
         <ng-container matColumnDef="team1">

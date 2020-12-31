@@ -15,6 +15,7 @@ export class MatchTableComponent implements OnInit {
   constructor(private tableData:TableDataService) { }
 
   ngOnInit(): void {
+    // subscribing to the getMatchData method of the API and assigning it to matchTableData
     this.tableData.getMatchData().subscribe(data => {
       // this sorts according to the date of match
       data.sort((a, b)=>{return ( a.matchDate.year - b.matchDate.year || a.matchDate.month - b.matchDate.month || a.matchDate.day - b.matchDate.day )});
@@ -27,6 +28,7 @@ export class MatchTableComponent implements OnInit {
   search() {
     console.log("search is called")
     console.log(this.searchKey);
+    // when the search bar is empty when search button is pressed the whole list is displayed
     if(this.searchKey == "") {
       this.ngOnInit();
     }
@@ -36,13 +38,13 @@ export class MatchTableComponent implements OnInit {
         let match = result.matchDate; // path to the matchDate Object is shortened for convenience in the next line
         let searchDate:string = `${match.day.toString()}/${match.month.toString()}/${match.year.toString()}`;
         return searchDate.match(this.searchKey);
-       // return result.matchDate.day.toString().match(this.searchKey);
       });
     }
 
     
   }
-
+  
+  // this method is run when the keyboard input becomes nothing (Works without having to press search)
   returnAllMatches() {
     if(this.searchKey == "") {
       this.ngOnInit();
